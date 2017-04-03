@@ -33,11 +33,6 @@ public class Evaluator {
                     stack.push(String.valueOf(UnaryEval(a, s)));
                 }
             }
-            /*System.out.print("stack : ");
-            for(Object c : stack.toArray()){
-                System.out.print(c + " ");
-            }
-            System.out.print("| "+s+"\n");*/
         }
         String result = stack.pop();
         if(Math.abs(Double.parseDouble(result)) < EPSILON)//Error degree
