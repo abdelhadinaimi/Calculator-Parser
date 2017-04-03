@@ -1,10 +1,9 @@
-/**
- * Created by whizzmirray on 4/03/17.
- */
-
 import java.math.BigInteger;
 import java.util.Stack;
 
+/**
+ * Created by whizzmirray on 4/03/17.
+ */
 
 public class Evaluator {
 
