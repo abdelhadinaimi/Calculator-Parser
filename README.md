@@ -5,3 +5,7 @@ To calculate the radian of the trigonometrical functions use :
 ```java
 Evaluator.setDeg(true);
 ```
+To Evaluate an expression use 
+```java
+Evaluator.evaluate(expression);
+```
