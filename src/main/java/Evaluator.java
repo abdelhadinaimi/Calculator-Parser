@@ -117,10 +117,10 @@ public class Evaluator {
             return BigInteger.ONE;
         return BigInteger.valueOf(n).multiply(recfact(n-1));
     }
-    private static String factorial(long n) {//TODO Tweak the retured factorial format for big numbers
+    private static Double factorial(long n) {//TODO Tweak the retured factorial format for big numbers
         //NumberFormat formatter = new DecimalFormat("0.######E0", DecimalFormatSymbols.getInstance(Locale.ROOT));
         //String str = formatter.format(recfact(n));
-        return recfact(n).toString();
+        return recfact(n).doubleValue();
     }
 
     public static boolean isInt(double a){//Checks if a is a floating number
