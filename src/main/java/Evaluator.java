@@ -34,64 +34,63 @@ public class Evaluator {
                 }
             }
         }
-        String result = stack.pop();
-        if(Math.abs(Double.parseDouble(result)) < EPSILON)//Error degree
-            return "0.0";
-        return result;
+        Double result = Double.parseDouble(stack.pop());
+
+        return String.valueOf(evalError(result));
     }
 
     public static String evaluate(String expression,boolean deg) throws Exception{//TODO turn off scientific notation
         setDeg(deg);
         return evaluate(expression);
     }
-    private static String BinaryEval(double a,double b,String op) throws Exception{
+    private static Double BinaryEval(double a,double b,String op) throws Exception{
         if(op.equals("+"))
-            return (a+b)+"";
+            return (a+b);
         if(op.equals("-")) {
-            return (a - b)+"";
+            return (a - b);
         }
         if(op.equals("*"))
-            return (a*b)+"";
+            return (a*b);
         if(op.equals("/")) {
             if (b == 0) throw new IllegalArgumentException("Divide by 0");
-            return (a / b)+"";
+            return (a / b);
         }
         if(op.equals("^"))
-            return Math.pow(a,b)+"";
+            return Math.pow(a,b);
 
         throw new IllegalArgumentException("Operation not found");//if non of the above where executed throw this
     }
-    private static String UnaryEval(double a,String op){
+    {
 
         if(op.equals("$"))
-            return -a+"";
+            return -a;
 
         if(op.equals("cos"))
-            return String.valueOf(deg ? Math.cos(Math.toRadians(a)) : Math.cos(a));
+            return deg ? Math.cos(Math.toRadians(a)) : Math.cos(a);
 
         if(op.equals("sin"))
-            return String.valueOf(deg ? Math.sin(Math.toRadians(a)) : Math.sin(a));
+            return deg ? Math.sin(Math.toRadians(a)) : Math.sin(a);
 
         if(op.equals("tan"))
-            return String.valueOf(deg ? Math.tan(Math.toRadians(a)) : Math.tan(a));
+            return deg ? Math.tan(Math.toRadians(a)) : Math.tan(a);
 
         if(op.equals("arccos"))
-            return String.valueOf(deg ? Math.acos(Math.toRadians(a)) : Math.acos(a));
+            return deg ? Math.acos(Math.toRadians(a)) : Math.acos(a);
 
         if(op.equals("arcsin"))
-            return String.valueOf(deg ? Math.asin(Math.toRadians(a)) : Math.asin(a));
+            return deg ? Math.asin(Math.toRadians(a)) : Math.asin(a);
 
         if(op.equals("arctan"))
-            return String.valueOf(deg ? Math.atan(Math.toRadians(a)) : Math.atan(a));
+            return deg ? Math.atan(Math.toRadians(a)) : Math.atan(a);
         //ln, log and square root will return NaN if a is less than 0
         if(op.equals("ln"))
-            return Math.log(a)+"";
+            return Math.log(a);
 
         if(op.equals("log"))
-            return  Math.log10(a)+"";
+            return  Math.log10(a);
 
         if(op.equals("√"))
-            return Math.sqrt(a)+"";
+            return Math.sqrt(a);
 
         if(op.equals("!")) {
             if(a > 120) throw new IllegalArgumentException("Number too big");
@@ -101,8 +100,14 @@ public class Evaluator {
             throw new IllegalArgumentException("Can't use factorial on floats");
         }
         if(op.equals("%"))
-            return (a/100)+"";
-        return "";
+            return (a/100);
+        return 0d;
+    }
+    
+    public static Double evalError(Double number){
+        if(Math.abs(Math.floor(number) - number) < EPSILON)//Error degree
+            return Math.floor(number);
+        return number;
     }
 
     /**
