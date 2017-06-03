@@ -60,8 +60,7 @@ public class Evaluator {
 
         throw new IllegalArgumentException("Operation not found");//if non of the above where executed throw this
     }
-    {
-
+    private static Double UnaryEval(double a,String op){
         if(op.equals("$"))
             return -a;
 
