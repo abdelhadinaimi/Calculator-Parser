@@ -122,8 +122,13 @@ public class Evaluator {
         //String str = formatter.format(recfact(n));
         return recfact(n).doubleValue();
     }
-
-    public static boolean isInt(double a){//Checks if a is a floating number
+    
+    /**
+     * Checks if the number is an integer number
+     * @param number a number
+     * @return true if number is an integer or false if it is a float
+     */
+    public static boolean isInt(double a){
         return (a == Math.floor(a) && !Double.isInfinite(a));
     }
 
