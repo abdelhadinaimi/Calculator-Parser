@@ -56,11 +56,11 @@ public class Parser {
         ArrayList<String> post = new ArrayList<>();//Result
         Stack<String> stack = new Stack<>();
         for(String s : tokens){
-            if(isFunction(s)){
+            if(isFunction(s)){//if its a function then just push it, it will process it last
                 stack.push(s);
             }
             if(isOperator(s)) {
-                if (s.equals(")")) {
+                if (s.equals(")")) {//if its a closing parenthesis pop the stack until we find and opening partenthesis
                     while (!stack.isEmpty()) {
                         String a = stack.peek();
                         if(!a.equals("("))
