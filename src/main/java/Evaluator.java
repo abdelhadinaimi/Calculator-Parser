@@ -10,7 +10,8 @@ public class Evaluator {
     private static final double EPSILON = 1e-15;
     private static boolean deg = false;
     /**
-     * Calculates the the Post Fix expression (Reverse polish expression) and if the result is less than EPSILON then it returns zero
+     * Calculates the the Post Fix expression (Reverse polish expression) and if the result is in range of EPSILON then it the closest
+     * whole number
      * @param expression A mathematical expression
      * @return the result of the expression
      * @throws Exception if and Operand is missing, divide by zero ect...
